@@ -1,0 +1,23 @@
+﻿@{
+    var Cursos = (List<FrontVuelingAcademy.Models.Curso>)ViewBag.Cursos;
+}
+
+@if (Cursos.Count > 0)
+{
+    <hr />
+    <dl>
+        <dt>Cursos:</dt>
+        @foreach (var item in Cursos)
+        {
+        <dd class="enlacesCurso">
+            @*@Html.DisplayFor(modelItem => item.Curso1)*@
+            @Html.ActionLink(item.Curso1, "Details", "Cursos", new { id = item.Id})
+        </dd>
+        }
+    </dl>
+}
+else
+{
+    <hr />
+    <dd style="color:red"><b>No hay Cursos asociadas.</b></dd>
+}

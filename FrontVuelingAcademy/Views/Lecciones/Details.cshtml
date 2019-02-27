@@ -1,0 +1,53 @@
+﻿@model FrontVuelingAcademy.Models.Lección
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Lección</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Id)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Id)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Lección1)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Lección1)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Comentario_HTML)
+        </dt>
+        <dd>
+            @Html.Raw(Model.Comentario_HTML)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Modulo)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Modulo)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.HayEjercicios)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.HayEjercicios)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Pos)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Pos)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>

@@ -1,0 +1,22 @@
+﻿@{
+    var subCategorias = (List<FrontVuelingAcademy.Models.SubCategoria>)ViewBag.SubCategorias;
+}
+
+@if (subCategorias.Count > 0)
+{
+    <hr />
+    <dl>
+        <dt>SubCategorias:</dt>
+        @foreach (var item in subCategorias)
+        {
+            <dd>
+                @Html.DisplayFor(modelItem => item.Sub_Categoria)
+            </dd>
+        }
+    </dl>
+}
+else
+{
+    <hr />
+    <dd style="color:red"><b>No hay SubCategorias asociadas.</b></dd>
+}

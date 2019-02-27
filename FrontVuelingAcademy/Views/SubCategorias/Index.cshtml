@@ -1,0 +1,64 @@
+﻿@model IEnumerable<FrontVuelingAcademy.Models.SubCategoria>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Sub_Categoria)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Categoria)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ComentarioHtml)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Imagen_Miniatura)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sub_Categoria)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CategoriaNavigation.Categoria1)
+            </td>
+            <td>
+                @Html.Raw(item.ComentarioHtml)
+            </td>
+            <td>
+                @if (item.Imagen_Miniatura != null)
+                {
+                    <img src="data:image;base64,@System.Convert.ToBase64String(item.Imagen_Miniatura)"/>
+                }
+                else
+                {
+                    <img src="https://via.placeholder.com/50x50" />
+                }
+            </td>
+            <td>
+                @Html.ActionLink("Details", "Details", new { id = item.Id })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

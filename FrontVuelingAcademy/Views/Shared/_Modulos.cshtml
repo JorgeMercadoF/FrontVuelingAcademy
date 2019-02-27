@@ -1,0 +1,29 @@
+﻿@{
+    var Modulos = (List<FrontVuelingAcademy.Models.Modulo>)ViewBag.Modulos;
+}
+
+@if (Modulos.Count > 0)
+{
+    <hr />
+    <dl>
+        <dt>Modulos:</dt>
+        @foreach (var item in Modulos)
+        {
+            <dd>
+                @Html.DisplayFor(modelItem => item.Modulo1)
+            </dd>
+            @if (item.Lección.Count > 0)
+            {
+                @foreach (var i in item.Lección)
+                {
+                    <dd><a href="#" style="margin-left:20px; padding-left:1px; padding-right:2px; background-color:gray; color:white"> &gt; @Html.DisplayFor(modelItem => i.Lección1) &lt; </a></dd>
+                }
+            }
+        }
+    </dl>
+}
+else
+{
+    <hr />
+    <dd style="color:red"><b>No hay Cursos asociadas.</b></dd>
+}

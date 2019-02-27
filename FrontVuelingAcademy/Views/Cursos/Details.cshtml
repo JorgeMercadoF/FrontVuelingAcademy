@@ -1,0 +1,58 @@
+﻿@model FrontVuelingAcademy.Models.Curso
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Curso</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Id)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Id)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Curso1)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Curso1)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Comentario_HTML)
+        </dt>
+        <dd>
+            @Html.Raw(Model.Comentario_HTML)
+        </dd>
+        <dt>@Html.DisplayNameFor(model => model.Imagen_Grande)</dt>
+        <dd>
+            @if (Model.Imagen_Grande != null)
+            {
+                <img src="data:image;base64,@System.Convert.ToBase64String(Model.Imagen_Grande)" width="100" height="100" />
+            }
+            else
+            {
+                <img src="https://via.placeholder.com/100x100" />
+            }
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.SubCategoria)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.SubCategoriaNavigation.Sub_Categoria)
+        </dd>
+        <dt></dt>
+        <dd>
+            @{
+                await Html.RenderPartialAsync("_Modulos");
+            }
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
